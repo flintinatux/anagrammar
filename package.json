@@ -1,0 +1,24 @@
+{
+  "name": "anagrammar",
+  "author": "Scott McCormack",
+  "description": "Description",
+  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/flintinatux/anagrammar"
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "test": "brunch test"
+  },
+  "devDependencies": {
+    "auto-reload-brunch": "^1.7.6",
+    "clean-css-brunch": "^1.7.1",
+    "coffee-script-brunch": "^1.8.1",
+    "css-brunch": "^1.7.0",
+    "digest-brunch": "^1.4.0",
+    "javascript-brunch": "^1.7.1",
+    "less-brunch": "^1.8.1",
+    "uglify-js-brunch": "^1.7.7"
+  }
+}

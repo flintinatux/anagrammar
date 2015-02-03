@@ -1,0 +1,24 @@
+{
+  "name": "anagrammar",
+  "repo": "flintinatux/anagrammar",
+  "version": "0.0.1",
+  "main": "public/app.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "font-awesome": "~4.3.0",
+    "mithril": "~0.1.29",
+    "normalize.css": "~3.0.2"
+  },
+  "overrides": {
+    "font-awesome": {
+      "main": [
+        "fonts"
+      ]
+    }
+  }
+}
