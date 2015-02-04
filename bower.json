@@ -8,10 +8,11 @@
     "node_modules",
     "bower_components"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "mithril": "~0.1.29"
+  },
   "devDependencies": {
     "font-awesome": "~4.3.0",
-    "mithril": "~0.1.29",
     "normalize.css": "~3.0.2"
   },
   "overrides": {
