@@ -8,8 +8,9 @@
     "url": "https://github.com/flintinatux/anagrammar"
   },
   "scripts": {
-    "start": "brunch watch --server",
-    "test": "brunch test"
+    "build": "brunch build --production",
+    "clean": "rm -rf public/*",
+    "start": "brunch watch --server"
   },
   "devDependencies": {
     "auto-reload-brunch": "^1.7.6",
