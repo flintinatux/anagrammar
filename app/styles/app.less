@@ -3,3 +3,55 @@
 
 @import '_variables.less';
 @import '_overrides.less';
+
+.anagram {
+  margin-bottom: 1.5rem;
+}
+
+.attempt {
+  margin-bottom: 0.5rem;
+}
+
+.header {
+  display: flex;
+  margin-bottom: 1.5rem;
+
+  .description {
+    color: @gray-70;
+    flex-grow: 2;
+    font-size: 2.0rem;
+    font-weight: 300;
+    margin: 0;
+    text-align: right;
+  }
+
+  .title {
+    flex-shrink: 0;
+    font-size: 2.0rem;
+    font-weight: 400;
+    margin: 0;
+  }
+}
+
+.letter {
+  margin-right: 0.2rem;
+
+  &.valid {
+    color: @gray-70;
+    font-weight: 300;
+  }
+
+  &.invalid {
+    color: red;
+    float: right;
+  }
+}
+
+.letters {
+  margin-bottom: 1.5rem;
+}
+
+.subtitle {
+  font-size: 2.0rem;
+  margin: 0 0 1.5rem;
+}
