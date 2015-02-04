@@ -10,6 +10,9 @@
   "scripts": {
     "build": "brunch build --production",
     "clean": "rm -rf public/*",
+    "deploy": "cd public/ && git checkout gh-pages && git add --all && git commit -m \"Deploy\" && git push origin gh-pages && cd ..",
+    "prebuild": "npm run clean",
+    "predeploy": "npm run build",
     "start": "brunch watch --server"
   },
   "devDependencies": {
