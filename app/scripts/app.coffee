@@ -14,10 +14,13 @@ Attempt = ->
   a
 
 vm.init = ->
-  vm.anagram  = anagram.bind vm
   vm.attempts = [ new Attempt ]
   vm.letters  = m.prop {}
   vm.value    = m.prop ''
+
+  vm.add      = -> vm.attempts.push new Attempt
+  vm.anagram  = anagram.bind vm
+
   vm.anagram 'parliament'
   vm
 
@@ -27,23 +30,32 @@ app.controller = ->
 app.view = (vm) ->
   [
     m '.header', [
-      m 'h1.title', 'Anagrammar'
+      m 'h1.title', [
+        m 'i.logo'
+        'The Anagrammar'
+      ]
+
       m 'p.description', 'a visual anagram tool'
     ]
 
-    m 'input.anagram[placeholder="Enter the original anagram letter-set here..."]', oninput: m.withAttr('value', vm.anagram), value: vm.value()
+    m 'input.anagram[placeholder="Enter the original anagram (ex: "parliament")"]', oninput: m.withAttr('value', vm.anagram), value: vm.value()
 
-    m 'h2.subtitle', 'Attempts'
+    m '.subtitle', [
+      m 'hr'
+      m 'h2', 'attempts'
+      m 'hr'
+    ]
 
     vm.attempts.map (a, index) ->
       letters = _.uniq _.keys(vm.letters()).concat _.keys(a.letters())
 
       [
-        m "input.attempt[placeholder='Attempt ##{index+1}']", oninput: m.withAttr('value', a.anagram), value: a.value()
+        m "input.attempt[placeholder='attempt ##{index+1}']", oninput: m.withAttr('value', a.anagram), value: a.value()
 
         m '.letters', _.map letters, (letter) ->
           total   = vm.letters()[letter] || 0
           used    = a.letters()[letter]  || 0
+
           valid   = if used > total then total else used
           unused  = total - used
           invalid = if unused < 0 then -unused else 0
@@ -54,6 +66,11 @@ app.view = (vm) ->
             _.times invalid, -> m 'span.letter.invalid', letter
           ]
       ]
+
+    m 'button.btn', { onclick: vm.add }, [
+      m 'i.add'
+      'Try another'
+    ]
   ]
 
 m.module document.body, app

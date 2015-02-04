@@ -4,12 +4,32 @@
 @import '_variables.less';
 @import '_overrides.less';
 
+.add {
+  .fa();
+  padding-right: 0.8rem;
+
+  &:before {
+    content: @fa-var-plus;
+  }
+}
+
 .anagram {
-  margin-bottom: 1.5rem;
+  // margin-bottom: 1.5rem;
 }
 
 .attempt {
   margin-bottom: 0.5rem;
+}
+
+.btn {
+  background: white;
+  border: 1px solid @gray-80;
+  outline: none;
+  padding: 0.8rem 1.2rem;
+
+  &:active {
+    background: @gray-90;
+  }
 }
 
 .header {
@@ -51,7 +71,23 @@
   margin-bottom: 1.5rem;
 }
 
+.logo {
+  .fa();
+  margin-right: 0.8rem;
+
+  &:before {
+    content: @fa-var-sort-alpha-asc;
+  }
+}
+
 .subtitle {
-  font-size: 2.0rem;
-  margin: 0 0 1.5rem;
+  display: flex;
+
+  h2 {
+    color: @gray-70;
+    font-size: 2.0rem;
+    margin: 1.5rem 0;
+    padding: 0 1.5rem;
+    text-align: center;
+  }
 }
