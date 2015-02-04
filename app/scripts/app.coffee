@@ -1,7 +1,5 @@
 @app = {}
 
-@vm = {}
-
 anagram = (string) ->
   @letters _.countBy _.sortBy string.replace(/\s+/,'').toUpperCase()
   @value string
@@ -13,19 +11,17 @@ Attempt = ->
   a.value   = m.prop ''
   a
 
-vm.init = ->
+Viewmodel = ->
+  vm = {}
+  vm.add      = -> vm.attempts.push new Attempt
+  vm.anagram  = anagram.bind vm
   vm.attempts = [ new Attempt ]
   vm.letters  = m.prop {}
   vm.value    = m.prop ''
-
-  vm.add      = -> vm.attempts.push new Attempt
-  vm.anagram  = anagram.bind vm
-
-  vm.anagram 'parliament'
   vm
 
 app.controller = ->
-  vm.init()
+  new Viewmodel
 
 app.view = (vm) ->
   [
@@ -35,7 +31,7 @@ app.view = (vm) ->
         'The Anagrammar'
       ]
 
-      m 'p.description', 'a visual anagram tool'
+      m 'p.description.hidden-sm', 'a visual anagram tool'
     ]
 
     m 'input.anagram[placeholder="Enter the original anagram (ex: "parliament")"]', oninput: m.withAttr('value', vm.anagram), value: vm.value()
